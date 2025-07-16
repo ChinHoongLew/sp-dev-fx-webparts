@@ -31,8 +31,32 @@ pre-create the list with the format below
 | COLOR | Single Line of Text| color of the icon and font |
 | BGCOLOR | Single Line of Text | background color of the quick link |
  
+## Property Panel Configuration
+|Name|Description|
+|List Name| the name of the list|
+|Group by?| filter query|
+|Margin| the margin in between tiles|
+|Padding| padding of the tiles|
+|Max Width|maximum width of the tiles|
+|Min Height|minimum height of the tiles|
+|Grid Width|width of the whole grid|
 
- 
+## Powershell command to create the list
+ <# provide the Site URL #>
+$SiteURL = "https://yourtenantsite.sharepoint.com/sites/yoursiteurl"
+
+<# Create "Quicklink" Lists #>
+$ListTitle = "QuickLink Settings"
+New-PnPList -Title $ListTitle -Template GenericList 
+
+
+Add-PnPField -List $ListTitle -DisplayName "ICON" -InternalName "ICON" -Type Text -AddToDefaultView
+Add-PnPField -List $ListTitle -DisplayName "LINK" -InternalName "LINK" -Type Text -AddToDefaultView
+Add-PnPField -List $ListTitle -DisplayName "POSITION" -InternalName "POSITION" -Type Number -AddToDefaultView
+Add-PnPField -List $ListTitle -DisplayName "TARGET" -InternalName "TARGET" -Type Choice -Group "TARGET" -AddToDefaultView -Choices "_blank","_self"
+Add-PnPField -List $ListTitle -DisplayName "GROUP" -InternalName "GROUP" -Type Choice -Group "GROUP" -AddToDefaultView -Choices "MAIN", "GROUP1"
+Add-PnPField -List $ListTitle -DisplayName "COLOR" -InternalName "COLOR" -Type Text -AddToDefaultView
+Add-PnPField -List $ListTitle -DisplayName "BGCOLOR" -InternalName "BGCOLOR" -Type Text -AddToDefaultView
 
 ## Solution
 
