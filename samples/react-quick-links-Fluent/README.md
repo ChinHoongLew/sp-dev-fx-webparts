@@ -24,10 +24,12 @@ pre-create the list with the format below
 | -----------| ------------------------------------------------------- |
 | Title          | Single Line of Text  |
 | ICON  | Single Line of Text  | refer to https://uifabricicons.azurewebsites.net/ |
-| LINK  | Single Line of Text  |
-| POSITION    | Number  |
-| TARGET    | Choice (_blank,_self) | 
-| GROUP     | Choice (Group1,Group2) |
+| LINK  | Single Line of Text  | the link of the quick link |
+| POSITION    | Number  | position of the quick link |
+| TARGET    | Choice (_blank,_self) | open in new window? | 
+| GROUP     | Choice (Group1,Group2) | Group by |
+| COLOR | Single Line of Text| color of the icon and font |
+| BGCOLOR | Single Line of Text | background color of the quick link |
  
 
  
