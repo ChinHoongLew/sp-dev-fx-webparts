@@ -4,7 +4,7 @@
    overflow: hidden;
   background-color: #ffffff;
   color: #252525;
-  min-height: 420px;
+  min-height: var(--minHeight);
   font-size: 16px;
  font-family: var(--fontFamilyCustomFont100);
   * {

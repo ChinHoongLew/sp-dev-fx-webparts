@@ -118,16 +118,17 @@ try {
  
 
    public render(): React.ReactElement<IPeopleSlickProps> {
-      const settings = {
+    const simple_settings = {
     dots: this.props.showDots,
-    infinite: true,
-    speed: 500,
+    speed: this.props.speed * 100,
     slidesToShow: this.props.slidesToShow,
     slidesToScroll: this.props.slidesToScroll,
     autoplay: this.props.enableAutoplay,
-    autoplaySpeed: this.props.autoplaySpeed * 1000,
+    autoplaySpeed: this.props.autoplaySpeed * 100,
     adaptiveHeight: true,
-     className: "",
+  
+    infinite: this.props.infinite,
+  
     cssEase: "linear",
      responsive: [
         {
@@ -150,18 +151,45 @@ try {
         },
       ],
   };
+  
+   const multipleRows_settings = {
+    dots: this.props.showDots,
+    speed: this.props.speed * 100,
+    slidesToShow: this.props.slidesToShow,
+    slidesToScroll: this.props.slidesToScroll,
+    autoplaySpeed: this.props.autoplaySpeed * 100,
+    adaptiveHeight: true,
+    className: "center",
+    rows: this.props.rows,
+    slidesPerRow: this.props.slidesPerRow,
+    centerMode: true,
+    infinite: this.props.infinite,
+    centerPadding: this.props.centerPadding +"px",
+    
+      
+  };
+  //choose the settings
+  let settings;
+  if (this.props.slickMode==='MultipleRows')
+  {
+    settings = multipleRows_settings;
+  }else
+  {
+    settings = simple_settings;
+  }
+   const styleBlock = { "--minHeight": this.props.minHeight + "px"} as React.CSSProperties;
 
     return (
-      <section className={`${styles.peopleSlick} `}>
+      <section className={`${styles.peopleSlick} `} style={styleBlock}>
           {this.state.loading && <p>Loading...</p>}
            <div className={styles.mainContainer}><p className={styles.webpartName}>{this.props.webpartName}</p>
           <Slider {...settings}>
             {this.state.listItems.map((item: CarousalItem) => {
               return (
                 <div className={styles.carousalItem} key={item.Id}>
-                  <p className={styles.profile}><img width='200' src={`${this.props.rootSiteURL}/_layouts/15/userphoto.aspx?size=L&accountname=${item.Email.EMail}`} /></p>
+                  <p className={styles.profile}><img width={`${this.props.photoWidth}`} src={`${this.props.rootSiteURL}/_layouts/15/userphoto.aspx?size=L&accountname=${item.Email.EMail}`} /></p>
                   <p className={styles.title}>{item.Email.Title}</p>
-                  <p className={styles.description}>{item.Email.JobTitle}, {item.Email.Department}</p>
+                  {this.props.displayJobTitle &&(<p className={styles.description}>{item.Email.JobTitle}, {item.Email.Department}</p>)}
                   {this.props.enableRedirectURL && item.RedirectURL && (
                     <p className={styles.viewMoreP}>
                       <button

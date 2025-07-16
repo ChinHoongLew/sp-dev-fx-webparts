@@ -35,7 +35,7 @@ pre-create the list with the format below
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| react-people-slick | Author details (Lew Chin Hoong @ https://www.facebook.com/woolei) |
+| react-people-slick | ChinHoong Lew (https://www.linkedin.com/in/lewchinhoong/) |
 
 ## Version history
 

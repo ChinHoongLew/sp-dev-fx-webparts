@@ -56,7 +56,7 @@ const MonthSection = (props: IMonthSectionProps): JSX.Element => {
         </div>
       </div>
       {isExpand && (
-        <div className="tw-flex tw-gap-8 tw-p-3 tw-pl-[2.35rem] tw-border tw-border-solid tw-border-[#f3f2f1]">
+        <div className="tw-flex tw-gap-8 tw-p-3 tw-pl-[2.35rem] tw-border tw-border-solid tw-border-[#f3f2f1] flex-wrap">
           {props.data.users.length === 0 && <div>No birthdays this month.</div>}
           {props.data.users.map((user) => (
             <div className="tw-flex tw-gap-4" key={user.id}>

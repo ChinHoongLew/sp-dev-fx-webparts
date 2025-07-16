@@ -1,15 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "react-people-slick-client-side-solution",
+    "name": "React People Slick",
+    "iconPath":"assets/people.png",
     "id": "d8a876a0-000b-4f8d-b52f-dfff585481dc",
-    "version": "1.0.0.0",
+    "version": "1.0.0.1",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
       "name": "Lew Chin Hoong",
-      "websiteUrl": "",
+      "websiteUrl": "https://ansellhealthcare.sharepoint.com/",
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": "Undefined-1.21.1"
@@ -21,7 +22,7 @@
       "longDescription": {
         "default": "react-people-slick display carousell of people from list"
       },
-      "screenshotPaths": [],
+      "screenshotPaths": ["assets/screenshot.png","assets/react-people-slick.gif"],
       "videoUrl": "",
       "categories": []
     },

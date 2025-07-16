@@ -6,6 +6,7 @@ import {
   PropertyPaneTextField,
   PropertyPaneToggle,
   PropertyPaneSlider,
+  PropertyPaneDropdown,
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
@@ -16,19 +17,35 @@ import { IPeopleSlickProps } from './components/IPeopleSlickProps';
 
 export interface IPeopleSlickWebPartProps {
   description: string;
+  //Data Sources
   listName: string;
   webpartName:string;
   UseRootSite: boolean;
+
+  //Slick settings
+  slickMode: string;
   showDots: boolean;
+  minHeight:number;
+  photoWidth:number;
   autoplaySpeed: number;
   speed: number;
   slidesToShow: number;
    slidesToScroll: number;
    recordToReturn: number;
   enableAutoplay: boolean;
+  rows: number;
+slidesPerRow: number;
+ 
+centerPadding:number;
+centerMode: boolean;
+infinite:boolean;
+
+   //advance settings
    customFilter: boolean;
    customFilterValue: string;
    enableRedirectURL: boolean;
+    
+   displayJobTitle:boolean;
  
 }
 export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSlickWebPartProps> {
@@ -50,16 +67,29 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
         listName: this.properties.listName,
         webpartName : this.properties.webpartName,
         UseRootSite: this.properties.UseRootSite,
+        recordToReturn: this.properties.recordToReturn,
+
+        slickMode: this.properties.slickMode,
         showDots: this.properties.showDots,
+        minHeight: this.properties.minHeight,
+        photoWidth:this.properties.photoWidth,
         autoplaySpeed: this.properties.autoplaySpeed,
         speed: this.properties.speed,
         slidesToShow: this.properties.slidesToShow,
         slidesToScroll: this.properties.slidesToScroll,
-        recordToReturn: this.properties.recordToReturn,
         enableAutoplay: this.properties.enableAutoplay,
+        rows: this.properties.rows,
+        slidesPerRow: this.properties.slidesPerRow,
+         
+        centerPadding: this.properties.centerPadding,
+        centerMode: this.properties.centerMode,
+        infinite: this.properties.infinite,
+
         customFilter: this.properties.customFilter,
         customFilterValue: this.properties.customFilterValue,
         enableRedirectURL: this.properties.enableRedirectURL,
+        
+        displayJobTitle:this.properties.displayJobTitle,
        
       }
     );
@@ -134,13 +164,13 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
-        {
+        { displayGroupsAsAccordion:true,
           header: {
             description: strings.PropertyPaneDescription
           },
           groups: [
             {
-              groupName : "Basic Configuration",
+              groupName : "Data Source Configuration",
               
               groupFields: [
                    PropertyPaneTextField('webpartName', {
@@ -157,10 +187,49 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   onText: "Yes",
                 }),
 
+
+                  PropertyPaneSlider("recordToReturn", {
+                  label: "Record to return",
+                  min: 1,
+                  max: 50,
+                }),
+
+          
+                
+               
+
+              ]
+            },
+            {
+                groupName:"Slick Configuration",
+                isCollapsed:true,
+                groupFields:[
+                    PropertyPaneDropdown('slickMode', {
+                label: "Select Slick Mode",
+                options: [
+                  {key:'SimpleSlider',text:'SimpleSlider'},
+                  {key:'MultipleRows',text:'MultipleRows'},
+
+                ]
+           
+              }),
                    PropertyPaneToggle("showDots", {
                   label: "Show navigation (Dots)",
                   offText: "No",
                   onText: "Yes",
+                }),
+                 PropertyPaneSlider("minHeight", {
+                  label: "minimum height (100-500)",
+                  min: 100,
+                  max: 500,
+                 
+                }),
+
+                   PropertyPaneSlider("photoWidth", {
+                  label: "Photo Width (50-350)",
+                  min: 50,
+                  max: 350,
+                 
                 }),
 
                 PropertyPaneSlider("slidesToShow", {
@@ -175,32 +244,66 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   max: 15,
                 }),
 
-                  PropertyPaneSlider("recordToReturn", {
-                  label: "Record to return",
+                PropertyPaneSlider("rows", {
+                  label: "Row to show",
                   min: 1,
-                  max: 50,
+                  max: 5,
                 }),
 
-                PropertyPaneToggle("enableAutoplay", {
-                  label: "Enable autoplay",
+                PropertyPaneSlider("slidesPerRow", {
+                  label: "Slides Per Row",
+                  min: 1,
+                  max: 5,
+                }),
+
+           
+
+                  PropertyPaneSlider('centerPadding', {
+                    label: "Center Padding (1px - 60px)",
+                     min: 1,
+                     max: 60,
+                }),
+                
+                PropertyPaneToggle("centerMode", {
+                  label: "center Mode?",
                   offText: "No",
                   onText: "Yes",
                 }),
+                
+                PropertyPaneToggle("infinite", {
+                  label: "Enable infinite?",
+                  offText: "No",
+                  onText: "Yes",
+                }),
+                PropertyPaneSlider("speed", {
+                  label: "Speed, Default : 5",
+                  min: 1, 
+                  max: 20,
+                
+                }),
+                PropertyPaneToggle("enableAutoplay", {
+                  label: "Enable autoplay?",
+                  offText: "No",
+                  onText: "Yes",
+                }),
+            
                  
                 PropertyPaneSlider("autoplaySpeed", {
-                  label: "Autoplay speed",
-                  min: 1,
-                  max: 20,
+                  label: "Autoplay speed, default : 20",
+                  min: 1, 
+                  max: 50,
                   disabled: !this.properties.enableAutoplay,
                 }),
-                
-               
+              
 
-              ]
+
+              
+                ]
+
             },
             {
                 groupName:"Advanced configuration",
-             
+                isCollapsed:true,
                 groupFields:[
                      PropertyPaneToggle("customFilter", {
                   label: "Use Custom Filter?",
@@ -215,6 +318,14 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
 
                   PropertyPaneToggle("enableRedirectURL", {
                   label: "enable RedirectURL?",
+                  offText: "No",
+                  onText: "Yes",
+                  }),
+
+               
+
+                  PropertyPaneToggle("displayJobTitle", {
+                  label: "display Job Title & Department?",
                   offText: "No",
                   onText: "Yes",
                   }),

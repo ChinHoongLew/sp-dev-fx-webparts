@@ -11,6 +11,10 @@ export interface IPeopleSlickProps {
   webpartName:string;
   context: WebPartContext;
   UseRootSite: boolean;
+
+   slickMode: string;
+   minHeight:number;
+   photoWidth:number;
   showDots: boolean;
   autoplaySpeed: number;
    speed: number;
@@ -18,9 +22,16 @@ export interface IPeopleSlickProps {
   slidesToScroll: number;
   recordToReturn: number;
   enableAutoplay: boolean;
+    rows: number;
+slidesPerRow: number;
+ 
+centerPadding:number;
+centerMode: boolean;
+infinite:boolean;
 
   customFilter: boolean;
   customFilterValue: string;
   enableRedirectURL:boolean;
  
+   displayJobTitle:boolean;
 }
