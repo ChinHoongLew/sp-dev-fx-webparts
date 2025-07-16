@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "react-quick-links-fluent-client-side-solution",
+    "id": "ced0f853-bcec-4d90-ad5d-e2dea73fa463",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "react-quick-links-fluent description"
+      },
+      "longDescription": {
+        "default": "react-quick-links-fluent description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "react-quick-links-fluent Feature",
+        "description": "The feature that activates elements of the react-quick-links-fluent solution.",
+        "id": "55716062-f988-4111-a0e0-153f91a0d87c",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/react-quick-links-fluent.sppkg"
+  }
+}
