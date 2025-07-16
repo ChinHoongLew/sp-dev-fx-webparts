@@ -44,8 +44,11 @@ pre-create the list with the format below
 
 ## Powershell command to create the list
  <# provide the Site URL #>
- 
+
 $SiteURL = "https://yourtenantsite.sharepoint.com/sites/yoursiteurl"
+
+<# change it to your local Pnp powershell certificate file #>
+Connect-PnPOnline -Url $SiteURL -ClientId xxxx -Tenant xxxxxxx.sharepoint.com -certificatePath xxxxxxxxxx
 
 <# Create "Quicklink" Lists #>
 
