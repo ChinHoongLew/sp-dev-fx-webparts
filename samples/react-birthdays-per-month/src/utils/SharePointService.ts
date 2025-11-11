@@ -18,7 +18,7 @@ export class SharePointService {
       .getByTitle("Birthdays")
       .items.expand("Employee")
       .top(1000)
-      .select("ID,Month,Date,Employee/Title,Employee/UserName")();
+      .select("ID,Month,Date,Employee/Title,Employee/UserName,ShowDay")();
 
     return this.ProcessData(items);
   }
@@ -81,6 +81,7 @@ export class SharePointService {
               date: item.Date,
               month: item.Month,
               monthIndex: this.GetMonthIndex(item.Month),
+              showDay: item.ShowDay,
             })
           ),
         "date"

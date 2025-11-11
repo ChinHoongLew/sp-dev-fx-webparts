@@ -33,14 +33,24 @@ const MonthSection = (props: IMonthSectionProps): JSX.Element => {
     return birthdateDate;
   };
 
-  const generateDateLabel = (date: number, month: number): string => {
+  const generateDateLabel = (date: number, month: number, showDay: boolean): string => {
     const birthdateDate = getDate(date, month);
-    return format(birthdateDate, "E, d MMM");
+
+    if (showDay) {
+      return format(birthdateDate, "d MMM");
+    }else{
+      return "";
+    }
+  
   };
 
-  const generateDistanceLabel = (date: number, month: number): string => {
+  const generateDistanceLabel = (date: number, month: number, showDay: boolean): string => {
     const birthdateDate = getDate(date, month);
+    if (showDay) {
     return formatDistance(birthdateDate, new Date(), { addSuffix: true });
+    }else{
+      return "";
+    }
   };
 
   return (
@@ -78,8 +88,10 @@ const MonthSection = (props: IMonthSectionProps): JSX.Element => {
                     }}
                   />
                 </div>
-                <div>{generateDateLabel(user.date, user.monthIndex)}</div>
-                <div>{generateDistanceLabel(user.date, user.monthIndex)}</div>
+                <div>{generateDateLabel(user.date, user.monthIndex, user.showDay)}</div>
+                <div>{generateDistanceLabel(user.date, user.monthIndex, user.showDay)}</div>
+                
+
               </div>
             </div>
           ))}

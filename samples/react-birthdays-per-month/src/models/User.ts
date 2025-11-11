@@ -5,4 +5,5 @@ export interface User {
   month: string;
   monthIndex: number;
   date: number;
+  showDay: boolean;
 }
