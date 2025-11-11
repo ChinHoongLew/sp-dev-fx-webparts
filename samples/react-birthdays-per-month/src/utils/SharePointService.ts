@@ -17,6 +17,7 @@ export class SharePointService {
     const items: Array<any> = await this._spfi.web.lists
       .getByTitle("Birthdays")
       .items.expand("Employee")
+      .top(1000)
       .select("ID,Month,Date,Employee/Title,Employee/UserName")();
 
     return this.ProcessData(items);
