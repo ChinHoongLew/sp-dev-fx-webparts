@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from './PeopleSlick.module.scss';
 import type { IPeopleSlickProps } from './IPeopleSlickProps';
+import {IconButton } from "office-ui-fabric-react";
 
 // PnP Js
 import "@pnp/sp/webs";
@@ -168,6 +169,19 @@ try {
     
       
   };
+  //default message
+  let msg = "" ;
+  if(this.props.listName){
+
+      if (this.props.listName.toUpperCase() === 'NEW HIRE' ) {
+    msg= "Welcome to Ansell~ (From " + this.props.context.pageContext.web.absoluteUrl + ")";
+  }else if (this.props.listName.toUpperCase() === 'PEOPLE MOVE' ) {
+    msg= "Congratulations~ (From " + this.props.context.pageContext.web.absoluteUrl + ")";
+  }
+  }
+
+
+
   //choose the settings
   let settings;
   if (this.props.slickMode==='MultipleRows')
@@ -188,7 +202,17 @@ try {
               return (
                 <div className={styles.carousalItem} key={item.Id}>
                   <p className={styles.profile}><img width={`${this.props.photoWidth}`} src={`${this.props.rootSiteURL}/_layouts/15/userphoto.aspx?size=L&accountname=${item.Email.EMail}`} /></p>
-                  <p className={styles.title}>{item.Email.Title}</p>
+                  <p className={styles.title}>{item.Email.Title}
+                   <IconButton
+                    iconProps={{ iconName: "TeamsLogo" }}
+                    title="Teams"
+                      onClick={() => {
+                      window.open(`https://teams.microsoft.com/l/chat/0/0?users=${item.Email.EMail}&message=${msg}`);
+                     
+
+                    }}
+                  />  
+                  </p>
                   {this.props.displayJobTitle &&(<p className={styles.description}>{item.Email.JobTitle}, {item.Email.Department}</p>)}
                   {this.props.enableRedirectURL && item.RedirectURL && (
                     <p className={styles.viewMoreP}>

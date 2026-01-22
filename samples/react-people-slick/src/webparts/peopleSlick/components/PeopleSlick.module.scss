@@ -6,7 +6,7 @@
   color: #252525;
   min-height: var(--minHeight);
   font-size: 16px;
- font-family: var(--fontFamilyCustomFont100);
+ font-family: var(--fontFamilyCustomFont1300, var(--fontFamilyBase));
   * {
     box-sizing: border-box;
     margin: 0;
@@ -14,21 +14,22 @@
   }
 
    .webpartName {
-        font-weight: 800;
-        font-size:30px;
-        font-family: var(--fontFamilyCustomFont1000);
-        text-align: center;
+        font-weight: var(--fontWeightSemibold);
+        font-size:var(--fontSizeHero700);
+        font-family: var(--fontFamilyCustomFont1300, var(--fontFamilyBase));
+        text-align: left;
+        padding-left:12px;
       }
 
   .mainContainer {
     .carousalItem {
       position: relative;
       height: 265px;
-      padding: 12px;
+      
       .title {
-        font-weight: 800;
+        font-weight: var(--fontWeightSemibold);
         margin: 6px 0;
-        font-family: var(--fontFamilyCustomFont1000);
+        font-family: var(--fontFamilyCustomFont1300, var(--fontFamilyBase));
         text-align: center;
       }
       .description {

@@ -80,11 +80,13 @@ const MonthSection = (props: IMonthSectionProps): JSX.Element => {
                 <div className="tw-text-lg tw-font-semibold tw-flex tw-gap-1 tw-items-center">
                   <div>{user.name}</div>
                   <IconButton
-                    iconProps={{ iconName: "Mail" }}
-                    title="Mail"
+                    iconProps={{ iconName: "TeamsLogo" }}
+                    title="Teams"
                     onClick={(event) => {
                       event.stopPropagation();
-                      window.open(`mailto:${user.email}`);
+                      window.open(`https://teams.microsoft.com/l/chat/0/0?users=${user.email}&topicName=Happy%20Birthday&message=Happy%20Birthday%7E%20%28from%20SharePoint%29`);
+                      //window.open(`mailto:${user.email}`);
+
                     }}
                   />
                 </div>
