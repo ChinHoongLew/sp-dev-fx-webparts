@@ -31,13 +31,8 @@ infinite:boolean;
 
   customFilter: boolean;
   customFilterValue: string;
-<<<<<<< HEAD
   enableRedirectURL:boolean;
  
    displayJobTitle:boolean;
    displayOffice:boolean;
-=======
-  enableRedirectURL: boolean;
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 }

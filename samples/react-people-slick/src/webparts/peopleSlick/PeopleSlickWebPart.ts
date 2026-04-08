@@ -33,28 +33,17 @@ export interface IPeopleSlickWebPartProps {
   slidesToScroll: number;
   recordToReturn: number;
   enableAutoplay: boolean;
-<<<<<<< HEAD
-  rows: number;
+    rows: number;
 slidesPerRow: number;
  
 centerPadding:number;
 centerMode: boolean;
 infinite:boolean;
-
-   //advance settings
-   customFilter: boolean;
-   customFilterValue: string;
-   enableRedirectURL: boolean;
-    
-   displayJobTitle:boolean;
-   displayOffice:boolean;
- 
-=======
   customFilter: boolean;
   customFilterValue: string;
   enableRedirectURL: boolean;
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
+ displayJobTitle:boolean;
+ displayOffice:boolean;
 }
 export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSlickWebPartProps> {
   private _isDarkTheme: boolean = false;
@@ -96,14 +85,10 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
         customFilter: this.properties.customFilter,
         customFilterValue: this.properties.customFilterValue,
         enableRedirectURL: this.properties.enableRedirectURL,
-<<<<<<< HEAD
         
         displayJobTitle:this.properties.displayJobTitle,
         displayOffice:this.properties.displayOffice,
        
-=======
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
       }
     );
 
@@ -183,13 +168,8 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
           },
           groups: [
             {
-<<<<<<< HEAD
               groupName : "Data Source Configuration",
               
-=======
-              groupName: "Basic Configuration",
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
               groupFields: [
                 PropertyPaneTextField('webpartName', {
                   label: "Webpart Name"
@@ -205,7 +185,6 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   onText: "Yes",
                 }),
 
-<<<<<<< HEAD
 
                   PropertyPaneSlider("recordToReturn", {
                   label: "Record to return",
@@ -233,9 +212,6 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
            
               }),
                    PropertyPaneToggle("showDots", {
-=======
-                PropertyPaneToggle("showDots", {
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   label: "Show navigation (Dots)",
                   offText: "No",
                   onText: "Yes",
@@ -266,13 +242,8 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   max: 15,
                 }),
 
-<<<<<<< HEAD
                 PropertyPaneSlider("rows", {
                   label: "Row to show",
-=======
-                PropertyPaneSlider("recordToReturn", {
-                  label: "Record to return",
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   min: 1,
                   max: 5,
                 }),
@@ -296,7 +267,6 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   offText: "No",
                   onText: "Yes",
                 }),
-<<<<<<< HEAD
                 
                 PropertyPaneToggle("infinite", {
                   label: "Enable infinite?",
@@ -316,39 +286,24 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                 }),
             
                  
-=======
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                 PropertyPaneSlider("autoplaySpeed", {
                   label: "Autoplay speed, default : 20",
                   min: 1, 
                   max: 50,
                   disabled: !this.properties.enableAutoplay,
                 }),
-<<<<<<< HEAD
               
 
 
               
                 ]
-=======
-
-
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 
             },
             {
-<<<<<<< HEAD
                 groupName:"Advanced configuration",
                 isCollapsed:true,
                 groupFields:[
                      PropertyPaneToggle("customFilter", {
-=======
-              groupName: "Advanced configuration",
-
-              groupFields: [
-                PropertyPaneToggle("customFilter", {
->>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   label: "Use Custom Filter?",
                   offText: "No",
                   onText: "Yes",
