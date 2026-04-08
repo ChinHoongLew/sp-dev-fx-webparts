@@ -61,12 +61,19 @@ console.log("Getting data from list");
 try {
     
     const sp = await spfi().using(SPFx(this.props.context));
-       let filterText=""
-      
-       if (this.props.customFilter)
-        {
-         filterText = this.props.customFilterValue;
-        }
+       let filterText="";
+
+       //const endOfToday = new Date();
+       //endOfToday.setHours(23, 59, 59, 999);
+       //const isoDate = endOfToday.toISOString();
+
+      // if (this.props.customFilter) //if not empty, append the published filter   
+      //  {
+      filterText = this.props.customFilterValue
+         //filterText = this.props.customFilterValue + `And Published gt datetime'${isoDate}'`;
+      //  }else{ //if empty, just use published filter
+      //    filterText = `Published gt datetime'${isoDate}'`;
+      //  }
       
 
     if(this.props.UseRootSite)
@@ -214,6 +221,7 @@ try {
                   />  
                   </p>
                   {this.props.displayJobTitle &&(<p className={styles.description}>{item.Email.JobTitle}, {item.Email.Department}</p>)}
+                   {this.props.displayOffice &&(<p className={styles.description}>{item.Email.Office}</p>)}
                   {this.props.enableRedirectURL && item.RedirectURL && (
                     <p className={styles.viewMoreP}>
                       <button

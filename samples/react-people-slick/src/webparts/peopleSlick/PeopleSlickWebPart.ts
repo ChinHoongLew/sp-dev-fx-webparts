@@ -46,6 +46,7 @@ infinite:boolean;
    enableRedirectURL: boolean;
     
    displayJobTitle:boolean;
+   displayOffice:boolean;
  
 }
 export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSlickWebPartProps> {
@@ -90,6 +91,7 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
         enableRedirectURL: this.properties.enableRedirectURL,
         
         displayJobTitle:this.properties.displayJobTitle,
+        displayOffice:this.properties.displayOffice,
        
       }
     );
@@ -329,7 +331,12 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   offText: "No",
                   onText: "Yes",
                   }),
-
+                
+                  PropertyPaneToggle("displayOffice", {
+                  label: "display Office?",
+                  offText: "No",
+                  onText: "Yes",
+                  }),
 
               
                 ]

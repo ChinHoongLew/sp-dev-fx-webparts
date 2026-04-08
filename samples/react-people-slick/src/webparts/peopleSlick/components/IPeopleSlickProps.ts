@@ -34,4 +34,5 @@ infinite:boolean;
   enableRedirectURL:boolean;
  
    displayJobTitle:boolean;
+   displayOffice:boolean;
 }
