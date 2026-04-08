@@ -1,18 +1,24 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
 .peopleSlick {
-   overflow: hidden;
+  overflow: hidden;
   background-color: #ffffff;
   color: #252525;
   min-height: var(--minHeight);
   font-size: 16px;
+<<<<<<< HEAD
  font-family: var(--fontFamilyCustomFont1300, var(--fontFamilyBase));
+=======
+  font-family: var(--fontFamilyCustomFont100);
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
 
+<<<<<<< HEAD
    .webpartName {
         font-weight: var(--fontWeightSemibold);
         font-size:var(--fontSizeHero700);
@@ -20,31 +26,48 @@
         text-align: left;
         padding-left:12px;
       }
+=======
+  .webpartName {
+    font-weight: 800;
+    font-size: 30px;
+    font-family: var(--fontFamilyCustomFont1000);
+    text-align: center;
+  }
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 
   .mainContainer {
     .carousalItem {
       position: relative;
       height: 265px;
+<<<<<<< HEAD
       
+=======
+      padding: 12px;
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
       .title {
         font-weight: var(--fontWeightSemibold);
         margin: 6px 0;
         font-family: var(--fontFamilyCustomFont1300, var(--fontFamilyBase));
         text-align: center;
       }
+
       .description {
         opacity: 0.8;
         margin: 8px 0;
         text-align: center;
-       
+
       }
+
       .profile img {
-        margin:auto;
+        margin: auto;
       }
-       .viewMoreP {
-           text-align: center;
-           margin:auto;
-        }
+
+      .viewMoreP {
+        text-align: center;
+        margin: auto;
+      }
+
       .viewMore {
         border: none;
         padding: 4px 6px;
@@ -55,7 +78,7 @@
         //bottom: 0;
         //left: 12px;
         cursor: pointer;
-         text-align: center;
+        text-align: center;
       }
     }
   }

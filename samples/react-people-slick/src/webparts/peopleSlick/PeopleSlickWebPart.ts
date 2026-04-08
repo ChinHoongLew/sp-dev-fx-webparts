@@ -19,7 +19,7 @@ export interface IPeopleSlickWebPartProps {
   description: string;
   //Data Sources
   listName: string;
-  webpartName:string;
+  webpartName: string;
   UseRootSite: boolean;
 
   //Slick settings
@@ -30,9 +30,10 @@ export interface IPeopleSlickWebPartProps {
   autoplaySpeed: number;
   speed: number;
   slidesToShow: number;
-   slidesToScroll: number;
-   recordToReturn: number;
+  slidesToScroll: number;
+  recordToReturn: number;
   enableAutoplay: boolean;
+<<<<<<< HEAD
   rows: number;
 slidesPerRow: number;
  
@@ -48,11 +49,17 @@ infinite:boolean;
    displayJobTitle:boolean;
    displayOffice:boolean;
  
+=======
+  customFilter: boolean;
+  customFilterValue: string;
+  enableRedirectURL: boolean;
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 }
 export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSlickWebPartProps> {
-   private _isDarkTheme: boolean = false;
+  private _isDarkTheme: boolean = false;
   private _environmentMessage: string = "";
- 
+
 
   public render(): void {
     const element: React.ReactElement<IPeopleSlickProps> = React.createElement(
@@ -66,7 +73,7 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
         rootSiteURL: this.context.pageContext.site.absoluteUrl,
         context: this.context,
         listName: this.properties.listName,
-        webpartName : this.properties.webpartName,
+        webpartName: this.properties.webpartName,
         UseRootSite: this.properties.UseRootSite,
         recordToReturn: this.properties.recordToReturn,
 
@@ -89,17 +96,21 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
         customFilter: this.properties.customFilter,
         customFilterValue: this.properties.customFilterValue,
         enableRedirectURL: this.properties.enableRedirectURL,
+<<<<<<< HEAD
         
         displayJobTitle:this.properties.displayJobTitle,
         displayOffice:this.properties.displayOffice,
        
+=======
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
       }
     );
 
     ReactDom.render(element, this.domElement);
   }
 
-  
+
 
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
@@ -141,8 +152,8 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
       return;
     }
 
-     this._isDarkTheme = !!currentTheme.isInverted;
-    
+    this._isDarkTheme = !!currentTheme.isInverted;
+
     const {
       semanticColors
     } = currentTheme;
@@ -172,10 +183,15 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
           },
           groups: [
             {
+<<<<<<< HEAD
               groupName : "Data Source Configuration",
               
+=======
+              groupName: "Basic Configuration",
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
               groupFields: [
-                   PropertyPaneTextField('webpartName', {
+                PropertyPaneTextField('webpartName', {
                   label: "Webpart Name"
                 }),
 
@@ -183,12 +199,13 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   label: "List Name"
                 }),
 
-                   PropertyPaneToggle("UseRootSite", {
+                PropertyPaneToggle("UseRootSite", {
                   label: "Use Root Site?",
                   offText: "No",
                   onText: "Yes",
                 }),
 
+<<<<<<< HEAD
 
                   PropertyPaneSlider("recordToReturn", {
                   label: "Record to return",
@@ -216,6 +233,9 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
            
               }),
                    PropertyPaneToggle("showDots", {
+=======
+                PropertyPaneToggle("showDots", {
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   label: "Show navigation (Dots)",
                   offText: "No",
                   onText: "Yes",
@@ -240,14 +260,19 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   max: 15,
                 }),
 
-                 PropertyPaneSlider("slidesToScroll", {
+                PropertyPaneSlider("slidesToScroll", {
                   label: "Slides to scroll",
                   min: 1,
                   max: 15,
                 }),
 
+<<<<<<< HEAD
                 PropertyPaneSlider("rows", {
                   label: "Row to show",
+=======
+                PropertyPaneSlider("recordToReturn", {
+                  label: "Record to return",
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   min: 1,
                   max: 5,
                 }),
@@ -271,6 +296,7 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   offText: "No",
                   onText: "Yes",
                 }),
+<<<<<<< HEAD
                 
                 PropertyPaneToggle("infinite", {
                   label: "Enable infinite?",
@@ -290,39 +316,54 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                 }),
             
                  
+=======
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                 PropertyPaneSlider("autoplaySpeed", {
                   label: "Autoplay speed, default : 20",
                   min: 1, 
                   max: 50,
                   disabled: !this.properties.enableAutoplay,
                 }),
+<<<<<<< HEAD
               
 
 
               
                 ]
+=======
+
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 
             },
             {
+<<<<<<< HEAD
                 groupName:"Advanced configuration",
                 isCollapsed:true,
                 groupFields:[
                      PropertyPaneToggle("customFilter", {
+=======
+              groupName: "Advanced configuration",
+
+              groupFields: [
+                PropertyPaneToggle("customFilter", {
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
                   label: "Use Custom Filter?",
                   offText: "No",
                   onText: "Yes",
-                  }),
+                }),
 
-                  PropertyPaneTextField('customFilterValue', {
-                    label: "Custom Filter Query, Eg: Tags eq 'APAC'",
-                    disabled: !this.properties.customFilter,
-                  }),
+                PropertyPaneTextField('customFilterValue', {
+                  label: "Custom Filter Query, Eg: Tags eq 'APAC'",
+                  disabled: !this.properties.customFilter,
+                }),
 
-                  PropertyPaneToggle("enableRedirectURL", {
+                PropertyPaneToggle("enableRedirectURL", {
                   label: "enable RedirectURL?",
                   offText: "No",
                   onText: "Yes",
-                  }),
+                }),
 
                
 
@@ -338,12 +379,12 @@ export default class PeopleSlickWebPart extends BaseClientSideWebPart<IPeopleSli
                   onText: "Yes",
                   }),
 
-              
-                ]
+
+              ]
 
             },
-            
-            ]
+
+          ]
         }
       ]
     };

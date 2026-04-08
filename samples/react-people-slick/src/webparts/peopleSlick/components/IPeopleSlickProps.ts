@@ -6,9 +6,9 @@ export interface IPeopleSlickProps {
   environmentMessage: string;
   hasTeamsContext: boolean;
   userDisplayName: string;
-  rootSiteURL:string;
+  rootSiteURL: string;
   listName: string;
-  webpartName:string;
+  webpartName: string;
   context: WebPartContext;
   UseRootSite: boolean;
 
@@ -17,7 +17,7 @@ export interface IPeopleSlickProps {
    photoWidth:number;
   showDots: boolean;
   autoplaySpeed: number;
-   speed: number;
+  speed: number;
   slidesToShow: number;
   slidesToScroll: number;
   recordToReturn: number;
@@ -31,8 +31,13 @@ infinite:boolean;
 
   customFilter: boolean;
   customFilterValue: string;
+<<<<<<< HEAD
   enableRedirectURL:boolean;
  
    displayJobTitle:boolean;
    displayOffice:boolean;
+=======
+  enableRedirectURL: boolean;
+
+>>>>>>> ec98ddfb71abd05396f0b13d533b759747e66145
 }
